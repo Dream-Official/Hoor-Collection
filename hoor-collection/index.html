@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoor Collection — Ultra-Luxury Pakistani Haute Couture</title>
+  <meta name="description" content="Hoor Collection: Category-defining luxury Pakistani fashion. Pure Viscose kaftans, handcrafted Raw Silk ensembles, and regal Khuda Baksh bridal couture. Bespoke tailoring delivered worldwide.">
+  <meta name="keywords" content="Hoor Collection, Pakistani Luxury Fashion, Viscose Kaftan, Raw Silk Trouser, Bridal Chunnari, Pakistani Couture, Lahore Atelier">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Hoor Collection — Ultra-Luxury Pakistani Haute Couture">
+  <meta property="og:description" content="Category-defining Pakistani fashion. Pure Viscose, hand-finished appliqué, and regal bridal couture. Worldwide DHL delivery.">
+  <meta property="og:image" content="images/products/dress-5/img-1.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Design System CSS -->
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- DUAL-LAYER CUSTOM CURSOR -->
+  <div id="cursor-ring"></div>
+  <div id="cursor-dot"></div>
+
+  <!-- ANNOUNCEMENT BAR (TICKER) -->
+  <div class="announcement-bar">
+    <div class="announcement-bar__track">
+      <div class="announcement-bar__item">Complimentary DHL Express Worldwide Delivery on Orders Over $200 <span class="gold">✦</span></div>
+      <div class="announcement-bar__item">Bespoke Measurement Matrix · Tailored to Your Exact Dimensions <span class="gold">✦</span></div>
+      <div class="announcement-bar__item">Direct Atelier WhatsApp VIP Concierge: +92 316 0010301 <span class="gold">✦</span></div>
+      <div class="announcement-bar__item">100% Pure Organic Viscose & Artisanal Raw Silk Weaves <span class="gold">✦</span></div>
+      <div class="announcement-bar__item">Khuda Baksh Bridal Atelier · Kora Dabka & Hand Gotta Detailing <span class="gold">✦</span></div>
+      <!-- Loop duplicate -->
+      <div class="announcement-bar__item">Complimentary DHL Express Worldwide Delivery on Orders Over $200 <span class="gold">✦</span></div>
+      <div class="announcement-bar__item">Bespoke Measurement Matrix · Tailored to Your Exact Dimensions <span class="gold">✦</span></div>
+      <div class="announcement-bar__item">Direct Atelier WhatsApp VIP Concierge: +92 316 0010301 <span class="gold">✦</span></div>
+      <div class="announcement-bar__item">100% Pure Organic Viscose & Artisanal Raw Silk Weaves <span class="gold">✦</span></div>
+      <div class="announcement-bar__item">Khuda Baksh Bridal Atelier · Kora Dabka & Hand Gotta Detailing <span class="gold">✦</span></div>
+    </div>
+  </div>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container-wide">
+      <div class="header-inner">
+        
+        <!-- MOBILE HAMBURGER -->
+        <button class="mobile-menu-toggle" onclick="openMobileMenu()" aria-label="Open mobile navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+
+        <!-- BRAND LOGO -->
+        <a href="#home" class="site-logo">
+          <span class="logo-main">HOOR</span>
+          <span class="logo-sub">COLLECTION</span>
+        </a>
+
+        <!-- DESKTOP NAVIGATION -->
+        <nav class="main-nav">
+          <div class="nav-item">
+            <a href="#home" class="nav-link" data-nav-link="home">Home</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="#listing" class="nav-link" data-nav-link="listing">
+              Creations
+              <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </a>
+            <div class="nav-dropdown">
+              <a href="#listing" onclick="setCategoryFilter('')">
+                <div class="dropdown-label">All 10 Creations</div>
+                <div class="dropdown-desc">Explore the complete seasonal catalog</div>
+              </a>
+              <a href="#listing/Formal" onclick="setCategoryFilter('Formal')">
+                <div class="dropdown-label">Formal Kaftans</div>
+                <div class="dropdown-desc">Pure Viscose & Raw Silk statement silhouettes</div>
+              </a>
+              <a href="#listing/Semi-Formal" onclick="setCategoryFilter('Semi-Formal')">
+                <div class="dropdown-label">Viscose Long Shirt & Plazo</div>
+                <div class="dropdown-desc">Intricate appliqué embroidery 2-piece sets</div>
+              </a>
+              <a href="#listing/Bridal" onclick="setCategoryFilter('Bridal')">
+                <div class="dropdown-label">Khuda Baksh Bridal 3PC</div>
+                <div class="dropdown-desc">Pure silk chunnari with Kora Dabka & sharara</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="#lookbook" class="nav-link" data-nav-link="lookbook">Lookbook</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="#about" class="nav-link" data-nav-link="about">The Atelier</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="#contact" class="nav-link" data-nav-link="contact">Concierge</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="javascript:openOrderTracker('HOOR-8921')" class="nav-link" title="Track Order Status">Track Order</a>
+          </div>
+        </nav>
+
+        <!-- HEADER ACTIONS -->
+        <div class="header-actions">
+          <!-- SEARCH TRIGGER -->
+          <button class="header-action-btn" onclick="openSearchDrawer()" aria-label="Search creations" title="Search">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+
+          <!-- CURRENCY SWITCHER DROPDOWN -->
+          <div class="currency-switcher">
+            <button class="currency-btn" aria-label="Change currency">
+              <span class="current-currency-text">PKR</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="currency-dropdown">
+              <button class="currency-option" onclick="setCurrency('PKR')">
+                <span>🇵🇰 PKR</span>
+                <small>Rs.</small>
+              </button>
+              <button class="currency-option" onclick="setCurrency('USD')">
+                <span>🇺🇸 USD</span>
+                <small>$</small>
+              </button>
+              <button class="currency-option" onclick="setCurrency('AED')">
+                <span>🇦🇪 AED</span>
+                <small>AED</small>
+              </button>
+              <button class="currency-option" onclick="setCurrency('GBP')">
+                <span>🇬🇧 GBP</span>
+                <small>£</small>
+              </button>
+            </div>
+          </div>
+
+          <!-- WISHLIST TRIGGER -->
+          <button class="header-action-btn" onclick="openWishlistDrawer()" aria-label="Open wishlist" title="Wishlist">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            <span class="wishlist-badge">0</span>
+          </button>
+
+          <!-- CART TRIGGER -->
+          <button class="header-action-btn" onclick="openCartDrawer()" aria-label="Open shopping bag" title="Shopping Bag">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <span class="cart-badge">0</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div id="mobile-menu" class="mobile-drawer">
+    <div class="mobile-drawer__header">
+      <a href="#home" onclick="closeMobileMenu()" class="site-logo">
+        <span class="logo-main" style="font-size:1.5rem;color:var(--gold-500)">HOOR</span>
+        <span class="logo-sub" style="font-size:.55rem;color:#ffffff">COLLECTION</span>
+      </a>
+      <button onclick="closeMobileMenu()" style="font-size:1.5rem;color:#ffffff;padding:.25rem">✕</button>
+    </div>
+
+    <nav class="mobile-drawer__nav">
+      <a href="#home" class="mobile-nav-link" onclick="closeMobileMenu()">Home</a>
+      <a href="#listing" class="mobile-nav-link" onclick="closeMobileMenu()">All 10 Creations</a>
+      <a href="#listing/Formal" class="mobile-nav-link" onclick="closeMobileMenu()">Formal Kaftans</a>
+      <a href="#listing/Bridal" class="mobile-nav-link" onclick="closeMobileMenu()">Bridal Collection</a>
+      <a href="#lookbook" class="mobile-nav-link" onclick="closeMobileMenu()">Lookbook</a>
+      <a href="javascript:openWishlistDrawer();closeMobileMenu()" class="mobile-nav-link">Saved Wishlist</a>
+      <a href="javascript:openOrderTracker('HOOR-8921');closeMobileMenu()" class="mobile-nav-link">Track Order Status</a>
+      <a href="#about" class="mobile-nav-link" onclick="closeMobileMenu()">The Atelier</a>
+      <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()">Concierge VIP</a>
+    </nav>
+
+    <div class="mobile-drawer__footer">
+      <div style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-500);margin-bottom:.75rem;font-weight:600">Select Currency</div>
+      <div style="display:flex;gap:.5rem;margin-bottom:1.5rem">
+        <button class="badge badge-emerald" onclick="setCurrency('PKR');closeMobileMenu()">PKR</button>
+        <button class="badge badge-emerald" onclick="setCurrency('USD');closeMobileMenu()">USD</button>
+        <button class="badge badge-emerald" onclick="setCurrency('AED');closeMobileMenu()">AED</button>
+        <button class="badge badge-emerald" onclick="setCurrency('GBP');closeMobileMenu()">GBP</button>
+      </div>
+
+      <!-- Social Media Icons in Mobile Menu (Task 3) -->
+      <div style="margin-bottom:1.5rem">
+        <div style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-500);margin-bottom:.75rem;font-weight:600">Follow Us</div>
+        <div class="social-links-list">
+          <a href="https://www.instagram.com/nuzhatirfan812" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span class="social-icon-tooltip">Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/Hoordressofficial" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <span class="social-icon-tooltip">Facebook</span>
+          </a>
+          <a href="http://tiktok.com/@nuzhatirfan8" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="TikTok">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+            <span class="social-icon-tooltip">TikTok</span>
+          </a>
+          <a href="https://wa.me/923160010301" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.017.5 3.918 1.381 5.594L0 24l6.594-1.381A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.37l-.36-.214-3.714.779.793-3.671-.232-.371A9.818 9.818 0 1112 21.818z"/></svg>
+            <span class="social-icon-tooltip">WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <button class="btn btn-whatsapp btn-full" onclick="openWhatsApp('Hello Hoor Collection! I would like concierge guidance.');closeMobileMenu()">
+        WhatsApp Concierge
+      </button>
+    </div>
+  </div>
+
+  <!-- MAIN APPLICATION MOUNT POINT -->
+  <main id="app-root"></main>
+
+  <!-- SEARCH OVERLAY -->
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-input-wrap">
+      <input
+        type="text"
+        id="search-input"
+        class="search-input"
+        placeholder="Search fabrics, silhouettes, bridal..."
+        autocomplete="off"
+        oninput="handleSearchInput(this.value)"
+      >
+      <button class="search-close" onclick="closeSearchDrawer()" aria-label="Close search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="search-results-container" class="search-results"></div>
+  </div>
+
+  <!-- FILTER DRAWER -->
+  <div id="filter-drawer" class="filter-drawer">
+    <div class="filter-drawer__header">
+      <h3 class="font-serif" style="font-size:1.4rem;color:var(--emerald-900)">Filter Creations</h3>
+      <button onclick="closeFilterDrawer()" style="font-size:1.5rem;color:var(--emerald-900)">✕</button>
+    </div>
+
+    <div class="filter-drawer__body">
+      <div class="accordion-group">
+        <div class="accordion-item">
+          <button class="accordion-trigger is-open" onclick="toggleAccordion(this)">
+            <span>Category</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="accordion-content is-open">
+            <div class="accordion-content-inner">
+              <button class="filter-option ${AppState.filters.categories.length===0?'is-selected':''}" onclick="setCategoryFilter('');closeFilterDrawer()">
+                <span>All Categories</span>
+                <span class="check-icon">✓</span>
+              </button>
+              <button class="filter-option ${AppState.filters.categories.includes('Formal')?'is-selected':''}" onclick="setCategoryFilter('Formal');closeFilterDrawer()">
+                <span>Formal Kaftans & Sets</span>
+                <span class="check-icon">✓</span>
+              </button>
+              <button class="filter-option ${AppState.filters.categories.includes('Semi-Formal')?'is-selected':''}" onclick="setCategoryFilter('Semi-Formal');closeFilterDrawer()">
+                <span>Semi-Formal 2PC</span>
+                <span class="check-icon">✓</span>
+              </button>
+              <button class="filter-option ${AppState.filters.categories.includes('Bridal')?'is-selected':''}" onclick="setCategoryFilter('Bridal');closeFilterDrawer()">
+                <span>Bridal 3PC Couture</span>
+                <span class="check-icon">✓</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger is-open" onclick="toggleAccordion(this)">
+            <span>Fabric Origin</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="accordion-content is-open">
+            <div class="accordion-content-inner">
+              <button class="filter-option ${AppState.filters.fabrics.includes('Pure Viscose')?'is-selected':''}" onclick="AppState.filters.fabrics = ['Pure Viscose'];renderListingPage();closeFilterDrawer()">
+                <span>Pure Viscose (Flowing)</span>
+                <span class="check-icon">✓</span>
+              </button>
+              <button class="filter-option ${AppState.filters.fabrics.includes('Raw Silk')?'is-selected':''}" onclick="AppState.filters.fabrics = ['Raw Silk'];renderListingPage();closeFilterDrawer()">
+                <span>Premium Raw Silk</span>
+                <span class="check-icon">✓</span>
+              </button>
+              <button class="filter-option ${AppState.filters.fabrics.includes('Silk Chunnari')?'is-selected':''}" onclick="AppState.filters.fabrics = ['Silk Chunnari'];renderListingPage();closeFilterDrawer()">
+                <span>Silk Chunnari & Crushed Sharara</span>
+                <span class="check-icon">✓</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger is-open" onclick="toggleAccordion(this)">
+            <span>Sort Strategy</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="accordion-content is-open">
+            <div class="accordion-content-inner">
+              <button class="filter-option ${AppState.filters.sort==='featured'?'is-selected':''}" onclick="setSortFilter('featured');closeFilterDrawer()">
+                <span>Featured Atelier Picks</span>
+                <span class="check-icon">✓</span>
+              </button>
+              <button class="filter-option ${AppState.filters.sort==='newest'?'is-selected':''}" onclick="setSortFilter('newest');closeFilterDrawer()">
+                <span>Newest Additions</span>
+                <span class="check-icon">✓</span>
+              </button>
+              <button class="filter-option ${AppState.filters.sort==='price-low'?'is-selected':''}" onclick="setSortFilter('price-low');closeFilterDrawer()">
+                <span>Price: Low to High</span>
+                <span class="check-icon">✓</span>
+              </button>
+              <button class="filter-option ${AppState.filters.sort==='price-high'?'is-selected':''}" onclick="setSortFilter('price-high');closeFilterDrawer()">
+                <span>Price: High to Low</span>
+                <span class="check-icon">✓</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-drawer__footer" style="gap:1rem">
+      <button class="btn btn-outline btn-full" onclick="clearAllFilters();closeFilterDrawer()">Reset All</button>
+      <button class="btn btn-emerald btn-full" onclick="closeFilterDrawer()">Apply</button>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div id="cart-drawer" class="cart-drawer">
+    <div class="cart-drawer__header">
+      <div>
+        <h3 class="font-serif" style="font-size:1.4rem;color:var(--emerald-900);line-height:1">Shopping Bag</h3>
+        <span style="font-size:.75rem;color:var(--charcoal-500)">Hoor Collection Haute Couture</span>
+      </div>
+      <button onclick="closeCart()" style="font-size:1.5rem;color:var(--emerald-900);padding:.25rem">✕</button>
+    </div>
+
+    <div id="cart-drawer-body" class="cart-drawer__body"></div>
+    <div id="cart-drawer-footer" class="cart-drawer__footer"></div>
+  </div>
+
+  <!-- WISHLIST DRAWER -->
+  <div id="wishlist-drawer" class="wishlist-drawer">
+    <div class="wishlist-drawer__header">
+      <div>
+        <h3 class="font-serif" style="font-size:1.4rem;color:var(--emerald-900);line-height:1">Your Wishlist</h3>
+        <span style="font-size:.75rem;color:var(--charcoal-500)">Saved Bespoke Creations</span>
+      </div>
+      <button onclick="closeWishlistDrawer()" style="font-size:1.5rem;color:var(--emerald-900);padding:.25rem">✕</button>
+    </div>
+
+    <div id="wishlist-drawer-body" class="wishlist-drawer__body"></div>
+    <div id="wishlist-drawer-footer" class="wishlist-drawer__footer"></div>
+  </div>
+
+  <!-- DRAWER BACKDROP -->
+  <div id="drawer-backdrop" class="drawer-overlay" onclick="closeCart();closeFilterDrawer();closeWishlistDrawer();closeMobileMenu()"></div>
+
+  <!-- QUICK VIEW MODAL -->
+  <div id="quick-view-modal" class="modal-backdrop">
+    <div class="modal-sheet sm-center quick-view-dialog" id="quick-view-content"></div>
+  </div>
+
+  <!-- LIGHTBOX INSPECTOR MODAL (EMBROIDERY ZOOM) -->
+  <div id="lightbox-modal" class="lightbox-modal">
+    <div class="lightbox-header">
+      <div id="lightbox-title" style="font-family:var(--font-serif);font-size:1.2rem;color:var(--gold-400)">2.5x High-Resolution Embroidery Inspector</div>
+      <div style="display:flex;gap:1rem;align-items:center">
+        <button class="btn btn-gold" style="padding:.35rem .75rem;font-size:.75rem" onclick="toggleLightboxZoom()">Toggle 2.5x Magnification</button>
+        <button onclick="closeLightbox()" style="font-size:1.6rem;color:white;cursor:pointer">✕</button>
+      </div>
+    </div>
+    <div class="lightbox-stage" id="lightbox-stage" onclick="toggleLightboxZoom()">
+      <button class="lightbox-nav-btn lightbox-nav-prev" onclick="event.stopPropagation();lightboxPrev()">‹</button>
+      <img id="lightbox-active-img" class="lightbox-img" src="" alt="High resolution inspection">
+      <button class="lightbox-nav-btn lightbox-nav-next" onclick="event.stopPropagation();lightboxNext()">›</button>
+    </div>
+    <div class="lightbox-footer">
+      <div id="lightbox-caption" style="font-size:.85rem;color:rgba(250,249,246,.8)">Click anywhere on image to toggle 2.5x magnification</div>
+      <div class="lightbox-thumbs" id="lightbox-thumbs"></div>
+    </div>
+  </div>
+
+  <!-- SMART FIT & SILHOUETTE RECOMMENDER MODAL -->
+  <div id="fit-modal" class="modal-backdrop">
+    <div class="modal-sheet sm-center" style="max-width:550px">
+      <div class="modal-header">
+        <div>
+          <h3 class="font-serif" style="font-size:1.5rem;color:var(--emerald-900)">✦ Smart Fit & Silhouette Stylist</h3>
+          <p style="font-size:.8rem;color:var(--charcoal-500)">Find your bespoke size in 3 quick questions</p>
+        </div>
+        <button onclick="closeFitAssistant()" style="font-size:1.4rem;color:var(--emerald-900)">✕</button>
+      </div>
+      <div class="modal-body" id="fit-modal-body"></div>
+      <div class="modal-footer" id="fit-modal-footer"></div>
+    </div>
+  </div>
+
+  <!-- ATELIER ORDER TRACKER MODAL -->
+  <div id="order-tracker-modal" class="modal-backdrop">
+    <div class="modal-sheet sm-center" style="max-width:600px">
+      <div class="modal-header">
+        <div>
+          <h3 class="font-serif" style="font-size:1.5rem;color:var(--emerald-900)">Atelier Couture Tracker</h3>
+          <p style="font-size:.8rem;color:var(--charcoal-500)">Real-time status of bespoke tailoring & dispatch</p>
+        </div>
+        <button onclick="closeOrderTracker()" style="font-size:1.4rem;color:var(--emerald-900)">✕</button>
+      </div>
+      <div class="modal-body" id="tracker-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- SHARE CREATION MODAL -->
+  <div id="share-modal" class="modal-backdrop">
+    <div class="modal-sheet sm-center" style="max-width:440px">
+      <div class="modal-header">
+        <h3 class="font-serif" style="font-size:1.4rem;color:var(--emerald-900)">Share This Creation</h3>
+        <button onclick="closeShareModal()" style="font-size:1.4rem;color:var(--emerald-900)">✕</button>
+      </div>
+      <div class="modal-body" id="share-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- STITCHING MATRIX MODAL -->
+  <div id="stitching-modal" class="modal-backdrop">
+    <div class="modal-sheet sm-center">
+      <div class="modal-header">
+        <div>
+          <h3 class="font-serif" style="font-size:1.5rem;color:var(--emerald-900)">Bespoke Measurement Matrix</h3>
+          <p style="font-size:.8rem;color:var(--charcoal-500)">Enter your body dimensions in inches for personalized tailoring</p>
+        </div>
+        <button onclick="closeStitchingModal()" style="font-size:1.4rem;color:var(--emerald-900)">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div style="background:var(--cream-100);padding:1rem;border-radius:.75rem;border:1px solid rgba(212,175,55,.2);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem">
+          <span style="font-size:1.5rem">📐</span>
+          <p style="font-size:.8rem;color:var(--charcoal-600);line-height:1.5">
+            Use a flexible measuring tape. Keep the tape comfortably snug, not tight. All measurements are processed by our Lahore master cut-and-fit team.
+          </p>
+        </div>
+
+        <div class="measurements-grid">
+          <div class="measurement-field">
+            <label>Bust (Inches) <span>*</span></label>
+            <input type="number" step="0.5" id="measure-bust" class="measurement-input" placeholder="e.g. 36">
+            <div class="measurement-desc">Around the fullest part</div>
+          </div>
+
+          <div class="measurement-field">
+            <label>Waist (Inches) <span>*</span></label>
+            <input type="number" step="0.5" id="measure-waist" class="measurement-input" placeholder="e.g. 30">
+            <div class="measurement-desc">Natural narrowest waistline</div>
+          </div>
+
+          <div class="measurement-field">
+            <label>Hips (Inches) <span>*</span></label>
+            <input type="number" step="0.5" id="measure-hips" class="measurement-input" placeholder="e.g. 40">
+            <div class="measurement-desc">Widest point around hips</div>
+          </div>
+
+          <div class="measurement-field">
+            <label>Shirt Length (Inches) <span>*</span></label>
+            <input type="number" step="0.5" id="measure-shirtLength" class="measurement-input" placeholder="e.g. 52">
+            <div class="measurement-desc">Top of shoulder to hem</div>
+          </div>
+
+          <div class="measurement-field">
+            <label>Sleeves (Inches) <span>*</span></label>
+            <input type="number" step="0.5" id="measure-sleeves" class="measurement-input" placeholder="e.g. 21">
+            <div class="measurement-desc">Shoulder bone to wrist</div>
+          </div>
+
+          <div class="measurement-field">
+            <label>Shoulder (Inches) <span>*</span></label>
+            <input type="number" step="0.5" id="measure-shoulder" class="measurement-input" placeholder="e.g. 14.5">
+            <div class="measurement-desc">Across back shoulder seam</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="display:flex;justify-content:flex-end;gap:1rem">
+        <button class="btn btn-outline" onclick="closeStitchingModal()">Cancel</button>
+        <button class="btn btn-gold" onclick="saveCustomMeasurements()">Save Dimensions</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIZE GUIDE MODAL -->
+  <div id="size-guide-modal" class="modal-backdrop">
+    <div class="modal-sheet sm-center">
+      <div class="modal-header">
+        <div>
+          <h3 class="font-serif" style="font-size:1.5rem;color:var(--emerald-900)">Standard Sizing Chart</h3>
+          <p style="font-size:.8rem;color:var(--charcoal-500)">Ready-to-wear dimensions in inches</p>
+        </div>
+        <button onclick="closeSizeGuideModal()" style="font-size:1.4rem;color:var(--emerald-900)">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <table style="width:100%;border-collapse:collapse;text-align:left;font-size:.9rem">
+          <thead>
+            <tr style="border-bottom:2px solid var(--gold-500);background:var(--cream-100)">
+              <th style="padding:.75rem">Size</th>
+              <th style="padding:.75rem">Bust</th>
+              <th style="padding:.75rem">Waist</th>
+              <th style="padding:.75rem">Hips</th>
+              <th style="padding:.75rem">Shoulder</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--cream-300)">
+              <td style="padding:.75rem;font-weight:700;color:var(--emerald-900)">Small (S)</td>
+              <td style="padding:.75rem">36"</td>
+              <td style="padding:.75rem">30"</td>
+              <td style="padding:.75rem">38"</td>
+              <td style="padding:.75rem">14.0"</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--cream-300)">
+              <td style="padding:.75rem;font-weight:700;color:var(--emerald-900)">Medium (M)</td>
+              <td style="padding:.75rem">39"</td>
+              <td style="padding:.75rem">33"</td>
+              <td style="padding:.75rem">41"</td>
+              <td style="padding:.75rem">14.5"</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--cream-300)">
+              <td style="padding:.75rem;font-weight:700;color:var(--emerald-900)">Large (L)</td>
+              <td style="padding:.75rem">42"</td>
+              <td style="padding:.75rem">36"</td>
+              <td style="padding:.75rem">44"</td>
+              <td style="padding:.75rem">15.0"</td>
+            </tr>
+            <tr>
+              <td style="padding:.75rem;font-weight:700;color:var(--emerald-900)">X-Large (XL)</td>
+              <td style="padding:.75rem">45"</td>
+              <td style="padding:.75rem">39"</td>
+              <td style="padding:.75rem">47"</td>
+              <td style="padding:.75rem">15.5"</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:1.5rem;font-size:.8rem;color:var(--charcoal-500)">
+          * Note: Standard Kaftan lengths range between 50" to 54" for an elegant full-drape silhouette. For bespoke alterations, select "Custom Tailoring".
+        </p>
+      </div>
+
+      <div class="modal-footer" style="text-align:right">
+        <button class="btn btn-emerald" onclick="closeSizeGuideModal()">Close Guide</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING WHATSAPP BUTTON (TASK 1) -->
+  <div class="floating-whatsapp-btn" id="floating-whatsapp">
+    <a href="https://wa.me/923160010301?text=Hello%20Hoor%20Collection!%20I%20would%20like%20to%20inquire%20about%20your%20luxury%20collection." target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.017.5 3.918 1.381 5.594L0 24l6.594-1.381A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.37l-.36-.214-3.714.779.793-3.671-.232-.371A9.818 9.818 0 1112 21.818z"/></svg>
+      <span class="floating-whatsapp-tooltip">Chat with us</span>
+    </a>
+  </div>
+
+  <!-- FLOATING LUXURY CONCIERGE WIDGET (LEFT SIDE) -->
+  <div class="floating-concierge">
+    <button class="floating-concierge-btn" onclick="toggleConcierge()" title="VIP Stylist Concierge" aria-label="Open concierge">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    </button>
+    <div class="concierge-card" id="concierge-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+        <div style="display:flex;align-items:center;gap:.5rem">
+          <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px #22c55e"></span>
+          <span style="font-weight:700;font-size:.85rem;color:var(--gold-500)">VIP Atelier Concierge</span>
+        </div>
+        <button onclick="toggleConcierge()" style="font-size:1.1rem;color:#ffffff;cursor:pointer">✕</button>
+      </div>
+      <p style="font-size:.8rem;color:#cccccc;line-height:1.5;margin-bottom:1rem">
+        Welcome to Hoor Collection. Our Lahore master stylist is available for bespoke consultation.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:.5rem">
+        <button class="btn btn-outline btn-full" style="font-size:.8rem;padding:.4rem .75rem;text-align:left;justify-content:flex-start" onclick="openWhatsApp('Hello! I would like bridal consultation for the Khuda Baksh Couture Collection.')">
+          👰 Bridal Consultation
+        </button>
+        <button class="btn btn-outline btn-full" style="font-size:.8rem;padding:.4rem .75rem;text-align:left;justify-content:flex-start" onclick="openWhatsApp('Hello! I need custom measurements guidance for my dress.')">
+          ✂️ Sizing & Stitching Help
+        </button>
+        <button class="btn btn-outline btn-full" style="font-size:.8rem;padding:.4rem .75rem;text-align:left;justify-content:flex-start" onclick="openOrderTracker('HOOR-8921');toggleConcierge()">
+          📦 Track My Order
+        </button>
+        <button class="btn btn-whatsapp btn-full" style="margin-top:.25rem" onclick="openWhatsApp('Hello Hoor Collection! I would like to consult with a stylist.')">
+          Open WhatsApp Direct
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCROLL TO TOP BUTTON -->
+  <button id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top" aria-label="Scroll to top" style="bottom:6rem">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container"></div>
+
+  <!-- SITE FOOTER (TASK 2 & 3: ROYAL BLACK & GOLD THEME WITH SOCIAL MEDIA LINKS) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- BRAND & STORY -->
+        <div class="footer-brand">
+          <a href="#home" class="site-logo" style="align-items:flex-start">
+            <span class="logo-main" style="color:var(--gold-500)">HOOR</span>
+            <span class="logo-sub" style="color:#ffffff">COLLECTION</span>
+          </a>
+          <p>
+            An ultra-luxury Pakistani Haute Couture digital flagship specializing in bespoke craftsmanship, pure organic silks, hand-cut appliqué, and heirloom bridal ensembles.
+          </p>
+
+          <!-- Social Media with Follow Us Heading (Task 3) -->
+          <div class="social-media-container">
+            <div class="social-media-heading">Follow Us</div>
+            <div class="social-links-list">
+              <a href="https://www.instagram.com/nuzhatirfan812" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <span class="social-icon-tooltip">Instagram</span>
+              </a>
+              <a href="https://www.facebook.com/Hoordressofficial" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <span class="social-icon-tooltip">Facebook</span>
+              </a>
+              <a href="http://tiktok.com/@nuzhatirfan8" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="TikTok">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                <span class="social-icon-tooltip">TikTok</span>
+              </a>
+              <a href="https://wa.me/923160010301" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.017.5 3.918 1.381 5.594L0 24l6.594-1.381A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.37l-.36-.214-3.714.779.793-3.671-.232-.371A9.818 9.818 0 1112 21.818z"/></svg>
+                <span class="social-icon-tooltip">WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLLECTIONS -->
+        <div>
+          <div class="footer-title">Creations</div>
+          <div class="footer-links">
+            <a href="#listing" class="footer-link">All 10 Couture Ensembles</a>
+            <a href="#listing/Formal" class="footer-link">Pure Viscose Kaftans</a>
+            <a href="#listing/Formal" class="footer-link">Raw Silk 2PC Sets</a>
+            <a href="#listing/Semi-Formal" class="footer-link">Viscose Shirt & Plazo</a>
+            <a href="#listing/Bridal" class="footer-link">Khuda Baksh Bridal 3PC</a>
+            <a href="#listing/Bridal" class="footer-link">Swiss Lawn Shadow Work</a>
+            <a href="#listing/Formal" class="footer-link">Organza A-Line Luxury</a>
+            <a href="#listing/Bridal" class="footer-link">Teal Chiffon Gharara</a>
+          </div>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div>
+          <div class="footer-title">Experience</div>
+          <div class="footer-links">
+            <a href="#lookbook" class="footer-link">Editorial Lookbook</a>
+            <a href="#about" class="footer-link">The Lahore Atelier</a>
+            <a href="#contact" class="footer-link">Private Consultation</a>
+            <a href="javascript:openSizeGuideModal()" class="footer-link">Sizing Chart & Fit</a>
+            <a href="javascript:openFitAssistant()" class="footer-link">Smart Fit Stylist</a>
+            <a href="javascript:openOrderTracker('HOOR-8921')" class="footer-link">Track Order Status</a>
+            <a href="javascript:openStitchingModal()" class="footer-link">Bespoke Matrix</a>
+          </div>
+        </div>
+
+        <!-- ATELIER CONTACT -->
+        <div>
+          <div class="footer-title">Atelier Concierge</div>
+          <p style="font-size:.875rem;color:#cccccc;line-height:1.7;margin-bottom:1rem">
+            Gulberg III, Lahore, Pakistan<br>
+            Direct WhatsApp: +92 316 0010301<br>
+            Hours: Mon–Sat, 11am – 8pm PKT
+          </p>
+          <button class="btn btn-whatsapp" style="padding:.5rem 1rem;font-size:.8rem" onclick="openWhatsApp('Hello Hoor Collection! I would like to speak to a personal stylist.')">
+            Chat with Atelier
+          </button>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Hoor Collection. All rights reserved. Ultra-Luxury Pakistani Fashion Platform.</div>
+        <div style="display:flex;gap:1.5rem">
+          <span style="color:var(--gold-400)">Direct WhatsApp Ordering: 923160010301</span>
+          <span>DHL Express Worldwide</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CORE SCRIPTS -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

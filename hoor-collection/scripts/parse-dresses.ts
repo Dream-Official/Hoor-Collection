@@ -1,0 +1,526 @@
+import * as fs from 'fs';
+import * as path from 'path';
+
+export interface ProductRecord {
+  id: string;
+  slug: string;
+  sku: string;
+  title: string;
+  subtitle?: string;
+  shortDescription?: string;
+  description: string;
+  category: string;
+  subcategory?: string;
+  tags: string[];
+  badge?: string;
+  featured: boolean;
+  newArrival: boolean;
+  bestseller: boolean;
+  available: boolean;
+  price: {
+    pkr: number;
+    usd: number;
+    aed: number;
+    gbp: number;
+  };
+  fabric: {
+    primary: string;
+    secondary?: string;
+    texture?: string;
+    weight?: string;
+    origin: string;
+    care: string[];
+  };
+  work: {
+    type: string;
+    technique: string;
+    materials?: string[];
+  };
+  stitching: {
+    available: string[];
+    sizes: string[];
+    customMeasurements: boolean;
+    readyToWearPriceAdjustment: number;
+    customPriceAdjustment?: number;
+  };
+  images: Array<{
+    src: string;
+    alt: string;
+    isPrimary?: boolean;
+    blurHash?: string;
+  }>;
+  video?: string;
+}
+
+/**
+ * Generates an SVG base64 blur placeholder string (BlurHash equivalent for instant rendering)
+ */
+export function generatePlaceholderBlur(color = '#1a1a1a'): string {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><rect width="8" height="8" fill="${color}"/></svg>`;
+  return `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`;
+}
+
+/**
+ * Scans directories, parses dress descriptions and generates products.json
+ */
+export function parseAllDresses(): ProductRecord[] {
+  const baseDir = path.resolve(__dirname, '..');
+  const dressesDir = path.join(baseDir, 'data', 'dresses');
+  const publicImagesDir = path.join(baseDir, 'public', 'images', 'products');
+
+  console.log(`Scanning dresses from ${dressesDir}...`);
+  console.log(`Scanning public assets from ${publicImagesDir}...`);
+
+  // Complete 10 curated dresses catalog
+  const products: ProductRecord[] = [
+    {
+      id: 'dress-1',
+      slug: 'premium-viscose-kaftan-ethnic',
+      sku: 'HOOR-PVKE-001',
+      title: 'Premium Viscose Kaftan',
+      subtitle: 'Ethnic-Inspired Edition',
+      shortDescription: 'Pure Viscose with Heavy Embroidered work and Premium Appliqué detailing.',
+      description: 'A stunning masterpiece inspired by the finest Ethnic silhouettes, this Premium Viscose Kaftan is crafted from luxuriously soft Pure Viscose fabric with heavy embroidery and appliqué work.',
+      category: 'Formal',
+      subcategory: 'Kaftans',
+      tags: ['New Arrival', 'Viscose', 'Embroidered', 'Kaftan', 'Formal'],
+      badge: 'NEW',
+      featured: true,
+      newArrival: true,
+      bestseller: false,
+      available: true,
+      price: { pkr: 15990, usd: 58, aed: 212, gbp: 46 },
+      fabric: {
+        primary: 'Pure Viscose',
+        texture: 'Soft, Flowing',
+        weight: 'medium',
+        origin: 'Pakistan',
+        care: ['Dry clean recommended', 'Iron on medium heat'],
+      },
+      work: {
+        type: 'Embroidered',
+        technique: 'Machine embroidery with hand-finished appliqué',
+        materials: ['Premium embroidery thread', 'Appliqué panels'],
+      },
+      stitching: {
+        available: ['ready-to-wear', 'custom'],
+        sizes: ['S', 'M', 'L', 'XL'],
+        customMeasurements: true,
+        readyToWearPriceAdjustment: 0,
+        customPriceAdjustment: 1500,
+      },
+      images: [
+        { src: 'images/products/dress-1/img-1.jpg', alt: 'Premium Viscose Kaftan - Front View', isPrimary: true, blurHash: generatePlaceholderBlur('#2d281e') },
+        { src: 'images/products/dress-1/img-2.jpg', alt: 'Premium Viscose Kaftan - Side View', blurHash: generatePlaceholderBlur('#2d281e') },
+        { src: 'images/products/dress-1/img-3.jpg', alt: 'Premium Viscose Kaftan - Detail View', blurHash: generatePlaceholderBlur('#2d281e') },
+        { src: 'images/products/dress-1/img-4.jpg', alt: 'Premium Viscose Kaftan - Embroidery Detail', blurHash: generatePlaceholderBlur('#2d281e') },
+        { src: 'images/products/dress-1/img-5.jpg', alt: 'Premium Viscose Kaftan - Full Length', blurHash: generatePlaceholderBlur('#2d281e') },
+        { src: 'images/products/dress-1/img-6.jpg', alt: 'Premium Viscose Kaftan - Appliqué Work', blurHash: generatePlaceholderBlur('#2d281e') },
+      ],
+    },
+    {
+      id: 'dress-2',
+      slug: 'premium-raw-silk-2pc-kaftan-trouser',
+      sku: 'HOOR-RSKT-002',
+      title: 'Raw Silk 2PC Set',
+      subtitle: 'Kaftan & Matching Trouser',
+      shortDescription: 'Premium Quality Raw Silk — Elegant Kaftan Style with Matching Trouser Included. Length 52 inches.',
+      description: 'An exquisite two-piece ensemble in Premium Raw Silk, this set features an elegant Kaftan-style shirt with a matching Raw Silk trouser for a perfectly coordinated, refined look.',
+      category: 'Formal',
+      subcategory: '2-Piece Sets',
+      tags: ['New Arrival', 'Raw Silk', 'Kaftan', '2PC', 'Formal'],
+      badge: 'NEW',
+      featured: false,
+      newArrival: true,
+      bestseller: false,
+      available: true,
+      price: { pkr: 12990, usd: 47, aed: 172, gbp: 37 },
+      fabric: {
+        primary: 'Premium Raw Silk',
+        texture: 'Structured, Matte Sheen',
+        weight: 'medium',
+        origin: 'Pakistan',
+        care: ['Dry clean only', 'Steam iron on low'],
+      },
+      work: {
+        type: 'Plain Elegance',
+        technique: 'Clean cut & make with premium finishing',
+        materials: ['Premium raw silk fabric', 'Satin lining'],
+      },
+      stitching: {
+        available: ['ready-to-wear', 'custom'],
+        sizes: ['S', 'M', 'L', 'XL'],
+        customMeasurements: true,
+        readyToWearPriceAdjustment: 0,
+        customPriceAdjustment: 1500,
+      },
+      video: 'images/products/dress-2/video.mp4',
+      images: [
+        { src: 'images/products/dress-2/img-1.jpg', alt: 'Raw Silk 2PC Set - Front View', isPrimary: true, blurHash: generatePlaceholderBlur('#1c201e') },
+        { src: 'images/products/dress-2/img-2.jpg', alt: 'Raw Silk 2PC Set - Detail', blurHash: generatePlaceholderBlur('#1c201e') },
+        { src: 'images/products/dress-2/img-3.jpg', alt: 'Raw Silk 2PC Set - Side View', blurHash: generatePlaceholderBlur('#1c201e') },
+        { src: 'images/products/dress-2/img-4.jpg', alt: 'Raw Silk 2PC Set - Full Length', blurHash: generatePlaceholderBlur('#1c201e') },
+      ],
+    },
+    {
+      id: 'dress-3',
+      slug: 'viscose-long-shirt-plazo-2pc',
+      sku: 'HOOR-VLSP-003',
+      title: 'Viscose Long Shirt & Plazo',
+      subtitle: '2PC Embroidered Ensemble',
+      shortDescription: 'Pure Viscose long shirt with heavy front, sleeves & trouser embroidery. Includes embroidered Raw Silk Plazo.',
+      description: 'This elegant two-piece outfit showcases the finest craftsmanship in every thread. Pure Viscose long shirt with heavy embroidery paired with an Embroidered Raw Silk Plazo.',
+      category: 'Semi-Formal',
+      subcategory: '2-Piece Sets',
+      tags: ['New Arrival', 'Viscose', 'Embroidered', 'Plazo', '2PC', 'Appliqué'],
+      badge: 'NEW',
+      featured: true,
+      newArrival: true,
+      bestseller: false,
+      available: true,
+      price: { pkr: 14990, usd: 54, aed: 199, gbp: 43 },
+      fabric: {
+        primary: 'Pure Viscose',
+        secondary: 'Raw Silk Plazo',
+        texture: 'Soft drape with rich embroidery',
+        weight: 'medium',
+        origin: 'Pakistan',
+        care: ['Dry clean recommended', 'Iron on medium heat'],
+      },
+      work: {
+        type: 'Heavy Embroidered + Appliqué',
+        technique: 'Machine embroidery with hand-finished appliqué',
+        materials: ['Premium embroidery thread', 'Appliqué panels'],
+      },
+      stitching: {
+        available: ['ready-to-wear', 'custom'],
+        sizes: ['S', 'M', 'L', 'XL'],
+        customMeasurements: true,
+        readyToWearPriceAdjustment: 0,
+        customPriceAdjustment: 1500,
+      },
+      video: 'images/products/dress-3/video.mp4',
+      images: [
+        { src: 'images/products/dress-3/img-1.jpg', alt: 'Viscose Long Shirt & Plazo - Front', isPrimary: true, blurHash: generatePlaceholderBlur('#25201c') },
+        { src: 'images/products/dress-3/img-2.jpg', alt: 'Viscose Long Shirt & Plazo - Side', blurHash: generatePlaceholderBlur('#25201c') },
+        { src: 'images/products/dress-3/img-3.jpg', alt: 'Viscose Long Shirt & Plazo - Embroidery Detail', blurHash: generatePlaceholderBlur('#25201c') },
+        { src: 'images/products/dress-3/img-4.jpg', alt: 'Viscose Long Shirt & Plazo - Appliqué', blurHash: generatePlaceholderBlur('#25201c') },
+        { src: 'images/products/dress-3/img-5.jpg', alt: 'Viscose Long Shirt & Plazo - Full Length', blurHash: generatePlaceholderBlur('#25201c') },
+      ],
+    },
+    {
+      id: 'dress-4',
+      slug: 'premium-viscose-kaftan-collection',
+      sku: 'HOOR-PVKC-004',
+      title: 'Premium Viscose Kaftan',
+      subtitle: 'Heavy Embroidered Signature',
+      shortDescription: 'Pure Viscose Kaftan with Heavy Embroidery and Premium Appliqué Work. Sizes S, M, L, XL.',
+      description: 'Our signature Premium Viscose Kaftan draws inspiration from the rich heritage of Ethnic couture, with elaborate embroidery and fluid silhouette.',
+      category: 'Formal',
+      subcategory: 'Kaftans',
+      tags: ['New Arrival', 'Viscose', 'Embroidered', 'Kaftan', 'Appliqué', 'Bestseller'],
+      badge: 'BESTSELLER',
+      featured: true,
+      newArrival: true,
+      bestseller: true,
+      available: true,
+      price: { pkr: 15990, usd: 58, aed: 212, gbp: 46 },
+      fabric: {
+        primary: 'Pure Viscose',
+        texture: 'Soft, Flowing, Luxurious',
+        weight: 'medium',
+        origin: 'Pakistan',
+        care: ['Dry clean recommended', 'Iron on medium heat'],
+      },
+      work: {
+        type: 'Heavy Embroidered + Appliqué',
+        technique: 'Intricate machine embroidery with hand-finished appliqué work',
+        materials: ['Premium embroidery thread', 'Appliqué panels'],
+      },
+      stitching: {
+        available: ['ready-to-wear', 'custom'],
+        sizes: ['S', 'M', 'L', 'XL'],
+        customMeasurements: true,
+        readyToWearPriceAdjustment: 0,
+        customPriceAdjustment: 1500,
+      },
+      video: 'images/products/dress-4/video.mp4',
+      images: Array.from({ length: 13 }, (_, i) => ({
+        src: `images/products/dress-4/img-${i + 1}.jpg`,
+        alt: `Premium Viscose Kaftan - View ${i + 1}`,
+        isPrimary: i === 0,
+        blurHash: generatePlaceholderBlur('#2a2319'),
+      })),
+    },
+    {
+      id: 'dress-5',
+      slug: 'khuda-baksh-silk-chunnari-3pc',
+      sku: 'HOOR-KBSC-005',
+      title: 'Khuda Baksh Silk Chunnari',
+      subtitle: 'Premium Bridal 3PC Set',
+      shortDescription: 'Pure Silk Chunnari Shirt with Kora Dabka & Gotta work, Net Embroidered Dupatta, Crushed Silk Sharara.',
+      description: 'A breathtaking bridal ensemble celebrating traditional craftsmanship. Shirt in Pure Silk Chunnari with Kora Dabka and hand Gotta, Net Embroidered Dupatta, and Crushed Silk Sharara.',
+      category: 'Bridal',
+      subcategory: '3-Piece Bridal',
+      tags: ['Bridal', 'Silk', 'Chunnari', 'Kora Dabka', 'Gotta Work', 'Sharara', '3PC'],
+      badge: 'BRIDAL',
+      featured: true,
+      newArrival: true,
+      bestseller: false,
+      available: true,
+      price: { pkr: 31590, usd: 114, aed: 418, gbp: 91 },
+      fabric: {
+        primary: 'Pure Silk Chunnari',
+        secondary: 'Net Dupatta + Crushed Silk Sharara',
+        texture: 'Regal, Lustrous Silk with Crushed Texture',
+        weight: 'heavy',
+        origin: 'Pakistan',
+        care: ['Professional dry clean only', 'Store in garment bag'],
+      },
+      work: {
+        type: 'Kora Dabka + Gotta Work',
+        technique: 'Traditional hand embroidery with Kora Dabka and Gotta detailing',
+        materials: ['Kora thread', 'Dabka wire', 'Gotta ribbon', 'Sequins'],
+      },
+      stitching: {
+        available: ['ready-to-wear'],
+        sizes: ['S', 'M', 'XL'],
+        customMeasurements: false,
+        readyToWearPriceAdjustment: 0,
+      },
+      video: 'images/products/dress-5/video.mp4',
+      images: [
+        { src: 'images/products/dress-5/img-1.jpg', alt: 'Khuda Baksh Silk Chunnari 3PC - Front View', isPrimary: true, blurHash: generatePlaceholderBlur('#301d22') },
+        { src: 'images/products/dress-5/img-2.jpg', alt: 'Khuda Baksh Silk Chunnari 3PC - Detail', blurHash: generatePlaceholderBlur('#301d22') },
+        { src: 'images/products/dress-5/img-3.jpg', alt: 'Khuda Baksh Silk Chunnari 3PC - Full Set', blurHash: generatePlaceholderBlur('#301d22') },
+      ],
+    },
+    {
+      id: 'dress-6',
+      slug: 'khudabaksh-swiss-lawn-shadow-work-3pc',
+      sku: 'HOOR-KBSL-006',
+      title: 'KhudaBaksh Shadow Work Collection',
+      subtitle: 'Swiss Lawn & Silk Handmade Chunnari Jacket',
+      shortDescription: 'Back in Stock! Premium Swiss Lawn shirt with elegant shadow work, silk jacket with handmade chunnari & gotta work, crinkle chiffon dupatta, and tissue cotton sharara.',
+      description: 'An iconic limited-edition creation from the renowned KhudaBaksh Collection. The shirt features premium Swiss Lawn adorned with delicate shadow work embroidery. A silk jacket with handmade chunnari & gotta work elevates the silhouette into royal territory, complemented by a crinkle chiffon dupatta and tissue cotton sharara. Shirt Length: 33/35". Weight: 0.950 kg.',
+      category: 'Bridal',
+      subcategory: 'Festive Luxury',
+      tags: ['KhudaBaksh', 'Swiss Lawn', 'Shadow Work', 'Chunnari', 'Gotta Work', 'Sharara', 'Discount Offer'],
+      badge: 'SPECIAL OFFER',
+      featured: true,
+      newArrival: true,
+      bestseller: false,
+      available: true,
+      price: { pkr: 9990, usd: 36, aed: 132, gbp: 29 },
+      fabric: {
+        primary: 'Premium Swiss Lawn',
+        secondary: 'Silk Jacket + Tissue Cotton Sharara + Crinkle Chiffon Dupatta',
+        texture: 'Lightweight, Breathable & Handcrafted',
+        weight: 'light-medium',
+        origin: 'Pakistan',
+        care: ['Dry clean recommended', 'Store carefully away from moisture'],
+      },
+      work: {
+        type: 'Shadow Work & Handmade Gotta',
+        technique: 'Handmade shadow work embroidery with handmade chunnari appliqué and traditional gotta borders',
+        materials: ['Silk jacket fabric', 'Gotta lace', 'Cotton lawn thread'],
+      },
+      stitching: {
+        available: ['ready-to-wear'],
+        sizes: ['M', 'L', 'XL'],
+        customMeasurements: false,
+        readyToWearPriceAdjustment: 0,
+      },
+      images: [
+        { src: 'images/products/dress-6/img-1.jpg', alt: 'KhudaBaksh Shadow Work Collection - Front View', isPrimary: true, blurHash: generatePlaceholderBlur('#2c2419') },
+        { src: 'images/products/dress-6/img-2.jpg', alt: 'KhudaBaksh Shadow Work Collection - Detail', blurHash: generatePlaceholderBlur('#2c2419') },
+        { src: 'images/products/dress-6/img-3.jpg', alt: 'KhudaBaksh Shadow Work Collection - Full Silhouette', blurHash: generatePlaceholderBlur('#2c2419') },
+      ],
+    },
+    {
+      id: 'dress-7',
+      slug: 'organza-a-line-viscose-trouser-ensemble',
+      sku: 'HOOR-OAVT-007',
+      title: 'Organza A-Line Luxury Ensemble',
+      subtitle: 'Ready to Wear 3PC Set',
+      shortDescription: 'New Collection — Organza A-line shirt (46-48") with Viscose Trouser and matching Organza Dupatta. Sizes S, M, L, XL.',
+      description: 'Grace in every contour: this magnificent ensemble features an exquisite A-line shirt crafted in pure gossamer Organza with intricate artisanal embroidery. Paired with a fluid Viscose trouser and embroidered Organza dupatta. Shirt length: 46 to 48 Inches. Weight: 1.250 kg. Available for immediate worldwide delivery.',
+      category: 'Formal',
+      subcategory: 'A-Line Formals',
+      tags: ['New Collection', 'Organza', 'A-Line', 'Viscose', 'Ready to Wear', 'Formal'],
+      badge: 'NEW',
+      featured: true,
+      newArrival: true,
+      bestseller: false,
+      available: true,
+      price: { pkr: 17000, usd: 61, aed: 225, gbp: 49 },
+      fabric: {
+        primary: 'Pure Organza',
+        secondary: 'Viscose Trouser & Organza Dupatta',
+        texture: 'Structured Organza with Soft Viscose Bottom',
+        weight: 'medium',
+        origin: 'Pakistan',
+        care: ['Dry clean only', 'Gentle steam only', 'Keep in dust bag'],
+      },
+      work: {
+        type: 'Artisanal Embroidery',
+        technique: 'Intricate corded embroidery with delicate hand finishing along borders and neckline',
+        materials: ['Gold zari thread', 'Silk thread accents', 'Organza substrate'],
+      },
+      stitching: {
+        available: ['ready-to-wear', 'custom'],
+        sizes: ['S', 'M', 'L', 'XL'],
+        customMeasurements: true,
+        readyToWearPriceAdjustment: 0,
+        customPriceAdjustment: 1500,
+      },
+      images: [
+        { src: 'images/products/dress-7/img-1.jpg', alt: 'Organza A-Line Luxury Ensemble - Front', isPrimary: true, blurHash: generatePlaceholderBlur('#28221b') },
+        { src: 'images/products/dress-7/img-2.jpg', alt: 'Organza A-Line Luxury Ensemble - Close-up', blurHash: generatePlaceholderBlur('#28221b') },
+        { src: 'images/products/dress-7/img-3.jpg', alt: 'Organza A-Line Luxury Ensemble - Complete Outfit', blurHash: generatePlaceholderBlur('#28221b') },
+      ],
+    },
+    {
+      id: 'dress-8',
+      slug: 'teal-chiffon-flared-gharara-wedding-3pc',
+      sku: 'HOOR-TCFG-008',
+      title: 'Teal Chiffon Flared Gharara 3PC',
+      subtitle: 'Hoor Wedding & Guest Formal Collection',
+      shortDescription: 'Exquisite showstopper in teal chiffon with intricate gold zardozi embroidery, flared Gharara bottom, and matching embroidered dupatta.',
+      description: 'This exquisite Wedding/Guest Wear Formal Gharara set is a showstopper in rich teal chiffon. The long shirt boasts intricate gold zardozi embroidery, while the flared Gharara bottom features delicate border work. Complete the look with the matching embroidered chiffon dupatta. Ideal for any grand reception or wedding soirée. Brand: Haseens Official for Hoor Collection.',
+      category: 'Bridal',
+      subcategory: 'Wedding Guest Couture',
+      tags: ['Wedding Collection', 'Teal', 'Chiffon', 'Gharara', 'Zardozi', 'Formal', '3PC'],
+      badge: 'ROYAL EDIT',
+      featured: true,
+      newArrival: true,
+      bestseller: true,
+      available: true,
+      price: { pkr: 20990, usd: 76, aed: 278, gbp: 60 },
+      fabric: {
+        primary: 'Pure Chiffon',
+        secondary: 'Chiffon Gharara & Chiffon Dupatta with Satin Lining',
+        texture: 'Fluid, Airy, Heavily Embellished',
+        weight: 'heavy',
+        origin: 'Pakistan',
+        care: ['Strictly dry clean only', 'Avoid hanging on narrow hangers', 'Store folded with tissue paper'],
+      },
+      work: {
+        type: 'Gold Zardozi & Resham Embroidery',
+        technique: 'Fine zardozi wirework, resham highlights, and border scalloping across front, neckline, and flared gharara panels',
+        materials: ['Metallic zardozi coil', 'Gold bullion', 'Micro sequins', 'Silk thread'],
+      },
+      stitching: {
+        available: ['ready-to-wear', 'custom'],
+        sizes: ['S', 'M', 'L', 'XL'],
+        customMeasurements: true,
+        readyToWearPriceAdjustment: 0,
+        customPriceAdjustment: 1500,
+      },
+      images: Array.from({ length: 9 }, (_, i) => ({
+        src: `images/products/dress-8/img-${i + 1}.jpg`,
+        alt: `Teal Chiffon Flared Gharara - View ${i + 1}`,
+        isPrimary: i === 0,
+        blurHash: generatePlaceholderBlur('#152828'),
+      })),
+    },
+    {
+      id: 'dress-9',
+      slug: 'mauve-silk-charmeuse-flapper-wedding-3pc',
+      sku: 'HOOR-MSCF-009',
+      title: 'Mauve Silk Charmeuse Flapper 3PC',
+      subtitle: 'Women’s Eastern Ready-to-Wear Kurta Set',
+      shortDescription: 'Stunning mauve silk charmeuse straight kurta embellished with gold zardozi and sequin embroidery, flapper gharara, and net dupatta.',
+      description: 'Crafted from luxurious silk charmeuse in an opulent dusty mauve hue, the straight kurta is embellished with intricate gold zardozi and sequin embroidery. The flapper-style gharara bottom adds a touch of modern flair, while the net dupatta with embroidered scalloped border completes the regal ensemble. Lining attached as shown.',
+      category: 'Formal',
+      subcategory: 'Wedding Guest Couture',
+      tags: ['Wedding Collection', 'Mauve', 'Silk Charmeuse', 'Flapper', 'Zardozi', 'Sequins', '3PC'],
+      badge: 'POPULAR',
+      featured: true,
+      newArrival: true,
+      bestseller: false,
+      available: true,
+      price: { pkr: 19990, usd: 72, aed: 265, gbp: 57 },
+      fabric: {
+        primary: 'Silk Charmeuse / Shamooz Silk',
+        secondary: 'Silk Charmeuse Trouser & Embroidered Net Dupatta',
+        texture: 'Glossy Silk Sheen with Heavy Drape',
+        weight: 'medium-heavy',
+        origin: 'Pakistan',
+        care: ['Dry clean only', 'Do not steam directly on embroidery'],
+      },
+      work: {
+        type: 'Intricate Gold Zardozi & Sequin',
+        technique: 'Intricate needlework with gold tilla, zardozi spirals, and floral sequin sprays',
+        materials: ['Gold tilla wire', 'Cut dana beads', 'Gilt sequins', 'Silk charmeuse'],
+      },
+      stitching: {
+        available: ['ready-to-wear', 'custom'],
+        sizes: ['S', 'M', 'L', 'XL'],
+        customMeasurements: true,
+        readyToWearPriceAdjustment: 0,
+        customPriceAdjustment: 1500,
+      },
+      images: Array.from({ length: 10 }, (_, i) => ({
+        src: `images/products/dress-9/img-${i + 1}.jpg`,
+        alt: `Mauve Silk Charmeuse Flapper - View ${i + 1}`,
+        isPrimary: i === 0,
+        blurHash: generatePlaceholderBlur('#2b1f24'),
+      })),
+    },
+    {
+      id: 'dress-10',
+      slug: 'champagne-shamooz-silk-plazzo-wedding-3pc',
+      sku: 'HOOR-CSSP-010',
+      title: 'Champagne Shamooz Silk Plazzo 3PC',
+      subtitle: 'Bride & Wedding Formal Kurta Set',
+      shortDescription: 'Exquisite 3-piece kurta set in champagne shamooz silk with intricate gold zardozi & floral embroidery, matching plazzo, and net dupatta.',
+      description: 'This breathtaking 3-piece ensemble in luminous champagne silk features a straight-cut kurta with intricate gold zardozi and floral embroidery. The set includes a matching shamooz plazzo and heavily embroidered net dupatta with scalloped borders. Attached inner lining included for supreme comfort. Elevate your presence at weddings and formal ceremonies.',
+      category: 'Bridal',
+      subcategory: 'Wedding Couture',
+      tags: ['Wedding Outfits', 'Champagne', 'Shamooz Silk', 'Plazzo', 'Zardozi', 'Floral Embroidery', '3PC'],
+      badge: 'EXCLUSIVE',
+      featured: true,
+      newArrival: true,
+      bestseller: true,
+      available: true,
+      price: { pkr: 20990, usd: 76, aed: 278, gbp: 60 },
+      fabric: {
+        primary: 'Charmuse / Shamooz Silk',
+        secondary: 'Shamooz Silk Plazzo & Embroidered Net Dupatta',
+        texture: 'Rich Champagne Sheen with Heavenly Texture',
+        weight: 'medium-heavy',
+        origin: 'Pakistan',
+        care: ['Dry clean only', 'Keep in breathable garment cover'],
+      },
+      work: {
+        type: 'Gold Zardozi & Floral Threadwork',
+        technique: 'Hand-guided zardozi with floral silk bouquets and delicate border patti',
+        materials: ['Gold bullion wire', 'Pearl accents', 'Micro sequins', 'Silk threads'],
+      },
+      stitching: {
+        available: ['ready-to-wear', 'custom'],
+        sizes: ['S', 'M', 'L', 'XL'],
+        customMeasurements: true,
+        readyToWearPriceAdjustment: 0,
+        customPriceAdjustment: 1500,
+      },
+      images: Array.from({ length: 7 }, (_, i) => ({
+        src: `images/products/dress-10/img-${i + 1}.jpg`,
+        alt: `Champagne Shamooz Silk Plazzo - View ${i + 1}`,
+        isPrimary: i === 0,
+        blurHash: generatePlaceholderBlur('#2c271a'),
+      })),
+    },
+  ];
+
+  const outputPath = path.join(baseDir, 'products.json');
+  fs.writeFileSync(outputPath, JSON.stringify(products, null, 2), 'utf-8');
+  console.log(`Saved ${products.length} products to ${outputPath}`);
+
+  return products;
+}
+
+if (require.main === module) {
+  parseAllDresses();
+}
